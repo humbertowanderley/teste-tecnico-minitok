@@ -1,0 +1,13 @@
+services:
+  migration:
+    build: .
+    image: back4apps-mongo-migrator
+    env_file:
+      - .env
+    container_name: back4apps-mongo-migration
+    command: >
+      bash -c "
+        set -e;
+        python export_back4apps_data.py || { echo '❌ Export failed'; exit 1; };
+        python import_to_parse_server.py && echo '✅ Migration completed successfully! 🎉'
+      "
