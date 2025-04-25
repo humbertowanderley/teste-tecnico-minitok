@@ -1,0 +1,12 @@
+# Arquivos de estado (contêm dados sensíveis)
+*.tfstate
+*.tfstate.backup
+
+# Diretórios ocultos do Terraform
+.terraform/
+.terraform.lock.hcl
+
+# Arquivos de variáveis sensíveis
+*.tfvars
+*.auto.tfvars
+*.tfvars.json
